@@ -1,4 +1,4 @@
-# Calorie Easy
+# Fitness Easy
 
 Calculate essential health metrics in one page. Eventually, the plan is to be able to record and track your periodic measurements.
 
