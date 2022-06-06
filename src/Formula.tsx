@@ -1,4 +1,3 @@
-import React from 'react';
 
 export function roundDecimal(num: number, precision: number) : number {
   return parseFloat(num.toFixed(precision));
