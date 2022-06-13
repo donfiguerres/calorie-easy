@@ -1,5 +1,7 @@
 import React from 'react';
 import * as Formula from './Formula';
+import {Form, InputGroup, FormControl} from 'react-bootstrap';
+import './FitnessEasy.scss';
 
 /**
  * Sanitize numerical input. It should be a positive number and can have decimal
@@ -7,7 +9,7 @@ import * as Formula from './Formula';
  * @param input input string
  * @returns sanitized string
  */
-const validateNumericalInput = (input: string) : string => {
+export const validateNumericalInput = (input: string) : string => {
   let pattern = /^[0-9]*\.?[0-9]*$/;
   let matches = input.match(pattern);
   if (matches)
@@ -20,7 +22,7 @@ const validateNumericalInput = (input: string) : string => {
  * @param input input string
  * @returns trimmed string
  */
-const trimEndDot = (input: string) : string => {
+export const trimEndDot = (input: string) : string => {
   if (input[input.length - 1] === ".")
     return input.slice(0, -1);
   return input;
@@ -75,19 +77,35 @@ class FitnessEasy extends React.Component<{}, FitnessEasyState> {
   render() {
     return (
       <div>
-        <h3>Weight</h3>
-        <input value={this.state.weightDisplayed} onChange={this.handleWeightChange}></input>
-        <h3>Height</h3>
-        <input value={this.state.heightDisplayed} onChange={this.handleHeightChange}></input>
-        <h3>BMI</h3>
-        <input value={this.state.bmi} readOnly></input>
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="inputGroup-sizing-default">Weight</InputGroup.Text>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+            value={this.state.weightDisplayed} onChange={this.handleWeightChange}
+          />
+        </InputGroup>
+        <br />
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="inputGroup-sizing-default">Height</InputGroup.Text>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+            value={this.state.heightDisplayed} onChange={this.handleHeightChange}
+          />
+        </InputGroup>
+        <br />
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="inputGroup-sizing-default">BMI</InputGroup.Text>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+            value={this.state.bmi} readOnly
+          />
+        </InputGroup>
       </div>
     )
   }
 }
 
 export default FitnessEasy;
-export {
-  validateNumericalInput,
-  trimEndDot
-}
