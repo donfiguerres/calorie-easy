@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Formula from './Formula';
-import {Form, InputGroup, FormControl} from 'react-bootstrap';
+import {InputGroup, FormControl} from 'react-bootstrap';
 import './FitnessEasy.scss';
 
 /**
